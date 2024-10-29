@@ -1,5 +1,13 @@
 const bcrypt = require('bcrypt')
 
+// bcrypt.hash 
+// Responsável por gerar a senha criptografada
+// Quando usar: Salvar hash no banco, não retornar pro usuário NUNCA.
+
+// bcrypt.compare 
+// Responsável por comparar a senha inserida com a senha criptografada
+// Quando usar: Usar no login após buscar usuário no banco de dados.
+
 async function cadastroUsuario(senha) {
     const hash = await bcrypt.hash(senha, 10)
     console.log(senha, hash)
